@@ -14,7 +14,7 @@ export default class Team {
     const last = characters.length;
     return {
       next() {
-        if (current <= last) {
+        if (current < last) {
           const currentValue = characters[current];
           current += 1;
           return {
