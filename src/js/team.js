@@ -1,22 +1,22 @@
 export default class Team {
   constructor() {
+    this.current = 0;
     this.team = [];
   }
 
   addPerson(char) {
     this.team.push(char);
-    return this.team;
+    return this;
   }
 
   [Symbol.iterator]() {
     const characters = this.team;
-    let current = 0;
     const last = characters.length;
     return {
-      next() {
-        if (current < last) {
-          const currentValue = characters[current];
-          current += 1;
+      next: () => {
+        if (this.current < last) {
+          const currentValue = characters[this.current];
+          this.current += 1;
           return {
             value: currentValue,
             done: false,
