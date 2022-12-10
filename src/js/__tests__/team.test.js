@@ -17,9 +17,9 @@ test('team building', () => {
   })
 });
 
-team[Symbol.iterator]().next();
 
 test('iterate team members', () => {
+  team[Symbol.iterator]().next();
   expect(team[Symbol.iterator]().next().value).toEqual({
     name: 'Зомби',
     type: 'Zombie',
@@ -28,4 +28,6 @@ test('iterate team members', () => {
     attack: 40,
     defence: 10
   });
+  team[Symbol.iterator]().next();
+  expect(team[Symbol.iterator]().next().done).toBe(true);
 });
